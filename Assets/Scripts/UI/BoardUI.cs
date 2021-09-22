@@ -29,8 +29,8 @@ public class BoardUI : MonoBehaviour
 				// Create square
 				Transform square = GameObject.CreatePrimitive(PrimitiveType.Quad).transform;
 				square.parent = transform;
-				//square.name = BoardRepresentation.SquareNameFromCoordinate(file, rank);
-				//square.position = PositionFromCoord(file, rank, 0);
+				square.name = BoardRepresentation.SquareNameFromCoordinate(file, rank);
+				square.position = PositionFromCoord(file, rank);
 				Material squareMaterial = new Material(squareShader);
 
 				squareRenderers[file, rank] = square.gameObject.GetComponent<MeshRenderer>();
@@ -46,5 +46,10 @@ public class BoardUI : MonoBehaviour
 		}
 
 		//ResetSquareColours();
+	}
+
+	public Vector3 PositionFromCoord(int file, int rank)
+	{
+		return new Vector3(-3.5f + file, -3.5f + rank, 0);
 	}
 }
