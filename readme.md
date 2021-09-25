@@ -9,3 +9,9 @@ Basically a rebuild of https://github.com/SebLague/Chess-AI
 ## Features
 
 - Board Themes
+
+## Resources
+
+- https://www.chessprogramming.org/Main_Page
+- https://github.com/SebLague/Chess-AI
+- https://web.archive.org/web/20071026090003/http://www.brucemo.com/compchess/programming/index.htm
