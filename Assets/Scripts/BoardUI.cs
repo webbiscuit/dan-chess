@@ -1,11 +1,12 @@
 using DanChessCore;
+using DanChessCore.FileFormats;
 using UnityEngine;
 
 public class BoardUI : MonoBehaviour
 {
 	public BoardTheme boardTheme;
 	public PieceTheme pieceTheme;
-    private Board board = new Board();
+	private Board board = Board.FromFen(FenFormat.NormalStartingBoard);
 
 	MeshRenderer[,] squareRenderers = new MeshRenderer[Board.Files, Board.Ranks];
 	SpriteRenderer[,] squarePieceRenderers = new SpriteRenderer[Board.Files, Board.Ranks];

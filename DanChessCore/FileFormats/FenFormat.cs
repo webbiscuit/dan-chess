@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DanChessCore.FileFormats
 {
-    // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
     public static class FenFormat
     {
+        public static readonly string NormalStartingBoard = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+
         public static BoardSetup ToBoardSetup(string fen)
         {
             var boardSetup = new BoardSetup();
