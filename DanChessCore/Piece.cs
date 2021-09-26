@@ -2,7 +2,7 @@
 {
     public class Piece
     {
-        public char Type { get; }
+        public char FenType { get; }
         public string Name { get; }
         public PieceColour Colour { get; }
 
@@ -14,7 +14,7 @@
 
         public Piece(char type, string name, PieceColour pieceColour)
         {
-            Type = type;
+            FenType = type;
             Name = name;
             Colour = pieceColour;
         }

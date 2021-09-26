@@ -52,10 +52,6 @@ namespace DanChessCore
             BoardSetup setup = FenFormat.ToBoardSetup(fen);
             Board board = new Board(setup);
 
-
-
-            //board._Squares[0] = new Piece('R', "Rook", Piece.PieceColour.White);
-
             return board;
         }
 
@@ -66,7 +62,7 @@ namespace DanChessCore
 
         public int IndexFromSquareName(string name)
         {
-            return fileNames.IndexOf(name[0]) * Ranks + rankNames.IndexOf(name[1]);
+            return fileNames.IndexOf(name[0]) + rankNames.IndexOf(name[1]) * Ranks;
         }
     }
 }
