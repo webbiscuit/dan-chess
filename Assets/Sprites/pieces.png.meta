@@ -63,6 +63,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -412,6 +413,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      white-king: -551560070878529861
+      white-bishop: -6471547303398317466
+      black-pawn: -3128472869823225626
+      white-queen: 682328194548300275
+      black-king: -6103448929188428571
+      black-queen: 8997511264840005099
+      black-knight: 363604672881974760
+      black-bishop: -8682517638822964565
+      white-rook: 411623905154873663
+      black-rook: 3499569636561676694
+      white-pawn: -6040119434067387703
+      symbols-2_4: -6946725550762736488
+      white-knight: 7934716463106192316
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

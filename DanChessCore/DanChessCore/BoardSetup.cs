@@ -11,7 +11,7 @@ namespace DanChessCore
         public const int Ranks = 8;
         public const int Files = 8;
 
-        public Piece[] Squares { get; }
+        public Piece[] Squares { get; set;  }
 
         public Piece this[int index]
         {

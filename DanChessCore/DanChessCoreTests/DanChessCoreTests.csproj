@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DanChessCoreFrameV4\DanChessCoreV4\DanChessCoreV4.csproj" />
+    <ProjectReference Include="..\DanChessCore\DanChessCore.csproj" />
   </ItemGroup>
 
 </Project>

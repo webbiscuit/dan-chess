@@ -17,3 +17,7 @@ Basically a rebuild of https://github.com/SebLague/Chess-AI
 - https://www.chessprogramming.org/Main_Page
 - https://github.com/SebLague/Chess-AI
 - https://web.archive.org/web/20071026090003/http://www.brucemo.com/compchess/programming/index.htm
+
+## Unity
+
+This branch (dotnetcore) needs unity 2022 (maybe 2021) - which are in pre-release.
