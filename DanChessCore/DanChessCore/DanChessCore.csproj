@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="COPY $(TargetPath) $(SolutionDir)Assets\Plugins\" />
+    <Exec Command="COPY $(TargetDir)\* $(SolutionDir)..\Assets\Plugins\" />
   </Target>
 
 </Project>

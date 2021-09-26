@@ -15,7 +15,7 @@ namespace DanChessCore
 
 
     [Serializable]
-    public class PieceException : DanChessException
+    public class PieceException : Exception
     {
         public PieceException() { }
         public PieceException(string message) : base(message) { }

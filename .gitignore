@@ -72,3 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 Assets/Plugins/DanChessCore.dll
+
+# Has its own gitignore
+!DanChessCore/**
+!DanChessCoreFrameV4/** 
