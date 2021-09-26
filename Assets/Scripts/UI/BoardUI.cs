@@ -1,16 +1,20 @@
+using Assets.Scripts.DanChess;
 using DanChess;
 using UnityEngine;
 
 namespace Chess.UI
 {
-	public class BoardUI : MonoBehaviour
+    public class BoardUI : MonoBehaviour
 	{
 		public BoardTheme boardTheme;
+		public PieceTheme pieceTheme;
 
 		Board board = new Board();
 		MeshRenderer[,] squareRenderers = new MeshRenderer[Board.Files, Board.Ranks];
 		SpriteRenderer[,] squarePieceRenderers = new SpriteRenderer[Board.Files, Board.Ranks];
 
+		const float boardDepth = 0f;
+		const float pieceDepth = -0.1f;
 
 		void Awake()
 		{
@@ -20,8 +24,6 @@ namespace Chess.UI
 		private void CreateBoardUI()
 		{
 			Shader squareShader = Shader.Find("Unlit/Color");
-			//squareRenderers = new MeshRenderer[8, 8];
-			//squarePieceRenderers = new SpriteRenderer[8, 8];
 
 			for (int rank = 0; rank < Board.Ranks; rank++)
 			{
@@ -31,27 +33,28 @@ namespace Chess.UI
 					Transform square = GameObject.CreatePrimitive(PrimitiveType.Quad).transform;
 					square.parent = transform;
 					square.name = Board.GetSquareName(file, rank);
-					square.position = PositionFromCoord(file, rank);
+					square.position = PositionFromCoord(file, rank, boardDepth);
 					Material squareMaterial = new Material(squareShader);
 
 					squareRenderers[file, rank] = square.gameObject.GetComponent<MeshRenderer>();
 					squareRenderers[file, rank].material = squareMaterial;
 
-					//// Create piece sprite renderer for current square
-					//SpriteRenderer pieceRenderer = new GameObject("Piece").AddComponent<SpriteRenderer>();
-					//pieceRenderer.transform.parent = square;
-					//pieceRenderer.transform.position = PositionFromCoord(file, rank, pieceDepth);
-					//pieceRenderer.transform.localScale = Vector3.one * 100 / (2000 / 6f);
-					//squarePieceRenderers[file, rank] = pieceRenderer;
-				}
+                    // Create piece sprite renderer for current square
+                    SpriteRenderer pieceRenderer = new GameObject("Piece").AddComponent<SpriteRenderer>();
+                    pieceRenderer.transform.parent = square;
+                    pieceRenderer.transform.position = PositionFromCoord(file, rank, pieceDepth);
+                    pieceRenderer.transform.localScale = Vector3.one * 100 / (1200 / 6f);
+                    squarePieceRenderers[file, rank] = pieceRenderer;
+                }
 			}
 
 			ResetSquareColours();
+			ShowPieces();
 		}
 
-		public Vector3 PositionFromCoord(int file, int rank)
+		public Vector3 PositionFromCoord(int file, int rank, float depth)
 		{
-			return new Vector3(-3.5f + file, -3.5f + rank, 0);
+			return new Vector3(-3.5f + file, -3.5f + rank, depth);
 		}
 
 		private void ResetSquareColours()
@@ -60,14 +63,33 @@ namespace Chess.UI
 			{
 				for (int file = 0; file < Board.Files; file++)
 				{
-					SetSquareColour(new Coord(file, rank), boardTheme.lightSquares.normal, boardTheme.darkSquares.normal);
+					var coord = new Coord(file, rank);
+					SetSquareColour(coord, (coord.IsLightSquare()) ? boardTheme.lightSquares.normal : boardTheme.darkSquares.normal);
 				}
 			}
 		}
 
-		void SetSquareColour(Coord square, Color lightCol, Color darkCol)
+		private void SetSquareColour(Coord square, Color colour)
 		{
-			squareRenderers[square.fileIndex, square.rankIndex].material.color = (square.IsLightSquare()) ? lightCol : darkCol;
+			squareRenderers[square.fileIndex, square.rankIndex].material.color = colour;
+		}
+
+		private void ShowPieces()
+		{
+			for (int rank = 0; rank < Board.Ranks; rank++)
+			{
+				for (int file = 0; file < Board.Files; file++)
+				{
+					ShowPiece(new Coord(file, rank), board[file, rank]);
+				}
+			}
+		}
+
+		private void ShowPiece(Coord square, Piece piece)
+		{
+            squarePieceRenderers[square.fileIndex, square.rankIndex].sprite = pieceTheme.GetPieceSprite(piece);
+            squarePieceRenderers[square.fileIndex, square.rankIndex].transform.position = 
+				PositionFromCoord(square.fileIndex, square.rankIndex, pieceDepth);
 		}
 	}
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WTF
   m_EditorClassIdentifier: 
   lightSquares:
-    normal: {r: 1, g: 1, b: 1, a: 0}
+    normal: {r: 0.6792453, g: 0.11149872, b: 0.5740977, a: 0}
   darkSquares:
-    normal: {r: 0, g: 0, b: 0, a: 0}
+    normal: {r: 0.11512991, g: 0.20828962, b: 0.7924528, a: 0}

@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardTheme: {fileID: 11400000, guid: 8e538dabc21320942b613505015ef8cf, type: 2}
+  pieceTheme: {fileID: 11400000, guid: 23bbe50da7f2bbf4b8ec9e4125cdb7bb, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
