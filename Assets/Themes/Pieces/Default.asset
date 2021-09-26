@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1528cb26726b9a47bad3c593f55a476, type: 3}
+  m_Script: {fileID: 11500000, guid: a3edbd7f4deea764fa6098f9b55ec1ea, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
   whitePieces:
@@ -25,4 +25,4 @@ MonoBehaviour:
     Knight: {fileID: 363604672881974760, guid: a5a4ddaaea6d9c648aa23db175abe067, type: 3}
     Bishop: {fileID: -8682517638822964565, guid: a5a4ddaaea6d9c648aa23db175abe067, type: 3}
     Queen: {fileID: 8997511264840005099, guid: a5a4ddaaea6d9c648aa23db175abe067, type: 3}
-    King: {fileID: 363604672881974760, guid: a5a4ddaaea6d9c648aa23db175abe067, type: 3}
+    King: {fileID: -6103448929188428571, guid: a5a4ddaaea6d9c648aa23db175abe067, type: 3}

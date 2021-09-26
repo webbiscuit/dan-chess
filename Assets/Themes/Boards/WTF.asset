@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2755bb079489b74582821e92ada02f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9435f9ae83391a74184b6172bc50e361, type: 3}
   m_Name: WTF
   m_EditorClassIdentifier: 
   lightSquares:
-    normal: {r: 0.6792453, g: 0.11149872, b: 0.5740977, a: 0}
+    normal: {r: 0.9150943, g: 0.09841575, b: 0.7856572, a: 0}
   darkSquares:
-    normal: {r: 0.11512991, g: 0.20828962, b: 0.7924528, a: 0}
+    normal: {r: 0.054823767, g: 0.14948754, b: 0.3773585, a: 0}

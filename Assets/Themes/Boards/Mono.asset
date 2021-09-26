@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2755bb079489b74582821e92ada02f7, type: 3}
-  m_Name: Choco Board
+  m_Script: {fileID: 11500000, guid: 9435f9ae83391a74184b6172bc50e361, type: 3}
+  m_Name: Mono
   m_EditorClassIdentifier: 
   lightSquares:
-    normal: {r: 0.9433962, g: 0.87112844, b: 0.27055886, a: 0}
+    normal: {r: 1, g: 1, b: 1, a: 0}
   darkSquares:
-    normal: {r: 0.26415092, g: 0.16064253, b: 0.028408667, a: 0}
+    normal: {r: 0, g: 0, b: 0, a: 0}

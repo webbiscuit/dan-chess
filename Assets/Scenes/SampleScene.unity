@@ -164,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 382208084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 279bf3ee0c1e50f4c981d4a4864b98ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 206f089f7115c9144be323adeb46e10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boardTheme: {fileID: 11400000, guid: 8e538dabc21320942b613505015ef8cf, type: 2}
