@@ -21,5 +21,16 @@ namespace DanChessCoreTests
                 piece.Should().BeNull();
             }
         }
+
+        [Test]
+        public void TestInitialSetup()
+        {
+            Board board = Board.FromFen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+
+            board["a1"].Should().BeEquivalentTo(new Piece(
+                'R', "Rook", Piece.PieceColour.White
+            ));
+
+        }
     }
 }

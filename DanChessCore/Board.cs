@@ -1,11 +1,16 @@
-﻿namespace DanChessCore
+﻿using DanChessCore.FileFormats;
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+namespace DanChessCore
 {
     public class Board
     {
         public const int Ranks = 8;
         public const int Files = 8;
 
-        public Piece[] Squares { get; }
+        public ReadOnlyCollection<Piece> Squares { get { return Array.AsReadOnly(_Squares); } }
 
         public Piece this[int index]
         {
@@ -17,12 +22,19 @@
             get => Squares[rank * Ranks + file];
         }
 
+        public Piece this[string squareName]
+        {
+            get => Squares[IndexFromSquareName(squareName)];
+        }
+
+        private Piece[] _Squares;
+
         private const string fileNames = "abcdefgh";
         private const string rankNames = "12345678";
 
         public Board()
         {
-            Squares = new Piece[Ranks * Files];
+            _Squares = new Piece[Ranks * Files];
 
             //Squares[32] = new Piece('K', "King", Piece.PieceColour.White);
             //Squares[33] = new Piece('K', "King", Piece.PieceColour.Black);
@@ -30,9 +42,31 @@
             //Squares[35] = new Piece('K', "Knight", Piece.PieceColour.Black);
         }
 
+        public Board(BoardSetup setup) : this()
+        {
+            setup.Squares.CopyTo(_Squares, 0);
+        }
+
+        public static Board FromFen(string fen)
+        {
+            BoardSetup setup = FenFormat.ToBoardSetup(fen);
+            Board board = new Board(setup);
+
+
+
+            //board._Squares[0] = new Piece('R', "Rook", Piece.PieceColour.White);
+
+            return board;
+        }
+
         public static string GetSquareName(int file, int rank)
         {
             return fileNames[file] + "" + (rank + 1);
+        }
+
+        public int IndexFromSquareName(string name)
+        {
+            return fileNames.IndexOf(name[0]) * Ranks + rankNames.IndexOf(name[1]);
         }
     }
 }
