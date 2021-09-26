@@ -1,7 +1,6 @@
-﻿using System;
-namespace DanChess
+﻿namespace DanChessCore
 {
-	public struct Coord //: IComparable<Coord>
+    public struct Coord //: IComparable<Coord>
 	{
 		public readonly int fileIndex;
 		public readonly int rankIndex;

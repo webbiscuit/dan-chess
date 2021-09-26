@@ -1,7 +1,5 @@
-﻿using Assets.Scripts;
-using Assets.Scripts.DanChess;
-using UnityEngine;
-
+﻿using UnityEngine;
+using DanChessCore;
 
 [CreateAssetMenu(menuName = "Theme/Pieces")]
 public class PieceTheme : ScriptableObject
