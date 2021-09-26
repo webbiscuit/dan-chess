@@ -14,7 +14,6 @@
 
         public Piece(char type, string name, PieceColour pieceColour)
         {
-            throw new DanChessException("WOOW");
             FenType = type;
             Name = name;
             Colour = pieceColour;

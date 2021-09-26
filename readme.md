@@ -12,6 +12,11 @@ Basically a rebuild of https://github.com/SebLague/Chess-AI
 - Piece Themes
 - Read from [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation)
 
+## Tech
+
+- C#
+- Unity 2020
+
 ## Resources
 
 - https://www.chessprogramming.org/Main_Page
