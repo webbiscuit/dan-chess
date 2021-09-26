@@ -24,10 +24,10 @@
         {
             Squares = new Piece[Ranks * Files];
 
-            Squares[32] = new Piece('K', "King", Piece.PieceColour.White);
-            Squares[33] = new Piece('K', "King", Piece.PieceColour.Black);
-            Squares[34] = new Piece('K', "Queen", Piece.PieceColour.White);
-            Squares[35] = new Piece('K', "Knight", Piece.PieceColour.Black);
+            //Squares[32] = new Piece('K', "King", Piece.PieceColour.White);
+            //Squares[33] = new Piece('K', "King", Piece.PieceColour.Black);
+            //Squares[34] = new Piece('K', "Queen", Piece.PieceColour.White);
+            //Squares[35] = new Piece('K', "Knight", Piece.PieceColour.Black);
         }
 
         public static string GetSquareName(int file, int rank)

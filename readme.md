@@ -9,6 +9,8 @@ Basically a rebuild of https://github.com/SebLague/Chess-AI
 ## Features
 
 - Board Themes
+- Piece Themes
+- Read from [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation)
 
 ## Resources
 
