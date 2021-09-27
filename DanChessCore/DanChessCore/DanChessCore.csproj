@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43077B6C-BD8E-4A2D-9FDB-B198D28EEC35}</ProjectGuid>
+    <ProjectGuid>{35800EE3-40BD-477D-8047-E76418797F72}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DanChessCore</RootNamespace>
