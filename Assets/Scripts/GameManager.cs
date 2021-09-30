@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     BoardUI boardUI;
     Board board;
-    //Player whitePlayer;
+    HumanPlayer whitePlayer;
     //Player blackPlayer;
 
     // Start is called before the first frame update
@@ -26,11 +26,12 @@ public class GameManager : MonoBehaviour
     {
         board = Board.FromFen(FenFormat.NormalStartingBoard);
         boardUI.SetBoard(board);
+        whitePlayer = new HumanPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        whitePlayer.CheckForInput();
     }
 }

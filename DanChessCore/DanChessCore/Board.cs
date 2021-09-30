@@ -14,17 +14,27 @@ namespace DanChessCore
 
         public Piece this[int index]
         {
-            get => Squares[index];
+            get => IsInBoard(index) ? Squares[index] : null;
         }
 
         public Piece this[int file, int rank]
         {
-            get => Squares[rank * Ranks + file];
+            get => IsInBoard(file, rank) ? Squares[rank * Ranks + file] : null;
         }
 
         public Piece this[string squareName]
         {
             get => Squares[IndexFromSquareName(squareName)];
+        }
+
+        public bool IsInBoard(int file, int rank)
+        {
+            return file >= 0 && file < Files && rank >= 0 && rank < Ranks;
+        }
+
+        public bool IsInBoard(int index)
+        {
+            return index >= 0 && index < Files * Ranks;
         }
 
         private Piece[] _Squares;
@@ -35,11 +45,6 @@ namespace DanChessCore
         public Board()
         {
             _Squares = new Piece[Ranks * Files];
-
-            //Squares[32] = new Piece('K', "King", Piece.PieceColour.White);
-            //Squares[33] = new Piece('K', "King", Piece.PieceColour.Black);
-            //Squares[34] = new Piece('K', "Queen", Piece.PieceColour.White);
-            //Squares[35] = new Piece('K', "Knight", Piece.PieceColour.Black);
         }
 
         public Board(BoardSetup setup) : this()

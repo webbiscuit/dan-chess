@@ -1,5 +1,6 @@
 using DanChessCore;
 using DanChessCore.FileFormats;
+using System;
 using UnityEngine;
 
 public class BoardUI : MonoBehaviour
@@ -13,6 +14,7 @@ public class BoardUI : MonoBehaviour
 
 	const float boardDepth = 0f;
 	const float pieceDepth = -0.1f;
+	const float pieceDragDepth = -0.2f;
 
 	public void SetBoard(Board board)
 	{
@@ -51,9 +53,41 @@ public class BoardUI : MonoBehaviour
 		ShowPieces();
 	}
 
-	public Vector3 PositionFromCoord(int file, int rank, float depth)
+    public void DragPiece(Coord coord, Vector2 mousePos)
+    {
+		squarePieceRenderers[coord.fileIndex, coord.rankIndex].transform.position = new Vector3(mousePos.x, mousePos.y, pieceDragDepth);
+    }
+
+    public Vector3 PositionFromCoord(int file, int rank, float depth)
 	{
 		return new Vector3(-3.5f + file, -3.5f + rank, depth);
+	}
+
+	public Coord? GetCoordUnderMouse(Vector2 mouseWorld)
+	{
+		int file = (int)Math.Floor(mouseWorld.x + 4);
+		int rank = (int)Math.Floor(mouseWorld.y + 4);
+
+		if (IsInBoard(file, rank))
+		{
+			return new Coord(file, rank);
+		}
+
+		return null;
+	}
+
+	public bool IsInBoard(int file, int rank)
+	{
+		return file >= 0 && file < Board.Files && rank >= 0 && rank < Board.Ranks;
+	}
+
+	public bool TryGetSquareUnderMouse(Vector2 mouseWorld, out Coord selectedCoord)
+	{
+		int file = (int)Math.Floor(mouseWorld.x + 4);
+		int rank = (int)Math.Floor(mouseWorld.y + 4);
+
+		selectedCoord = new Coord(file, rank);
+		return file >= 0 && file < 8 && rank >= 0 && rank < 8;
 	}
 
 	private void ResetSquareColours()

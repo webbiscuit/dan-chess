@@ -16,9 +16,14 @@
 			return (fileIndex + rankIndex) % 2 != 0;
 		}
 
-		//public int CompareTo(Coord other)
-		//{
-		//	return (fileIndex == other.fileIndex && rankIndex == other.rankIndex) ? 0 : 1;
-		//}
-	}
+        public override string ToString()
+        {
+			return $"File {fileIndex} - Index {rankIndex}";
+		}
+
+        //public int CompareTo(Coord other)
+        //{
+        //	return (fileIndex == other.fileIndex && rankIndex == other.rankIndex) ? 0 : 1;
+        //}
+    }
 }
