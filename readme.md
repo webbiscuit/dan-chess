@@ -12,6 +12,8 @@ Basically a rebuild of https://github.com/SebLague/Chess-AI
 - Piece Themes
 - Read from [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation)
 
+![Chess pieces all laid out](Docs/Pieces.PNG "Chess Pieces")
+
 ## Tech
 
 - C#
