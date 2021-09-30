@@ -47,6 +47,12 @@ namespace DanChessCore
             setup.Squares.CopyTo(_Squares, 0);
         }
 
+        public void LayoutFromFen(string fen)
+        {
+            BoardSetup setup = FenFormat.ToBoardSetup(fen);
+            setup.Squares.CopyTo(_Squares, 0);
+        }
+
         public static Board FromFen(string fen)
         {
             BoardSetup setup = FenFormat.ToBoardSetup(fen);

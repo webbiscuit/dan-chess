@@ -6,7 +6,7 @@ public class BoardUI : MonoBehaviour
 {
 	public BoardTheme boardTheme;
 	public PieceTheme pieceTheme;
-	private Board board = Board.FromFen(FenFormat.NormalStartingBoard);
+	private Board board;
 
 	MeshRenderer[,] squareRenderers = new MeshRenderer[Board.Files, Board.Ranks];
 	SpriteRenderer[,] squarePieceRenderers = new SpriteRenderer[Board.Files, Board.Ranks];
@@ -14,8 +14,9 @@ public class BoardUI : MonoBehaviour
 	const float boardDepth = 0f;
 	const float pieceDepth = -0.1f;
 
-	void Awake()
+	public void SetBoard(Board board)
 	{
+		this.board = board;
 		CreateBoardUI();
 	}
 
