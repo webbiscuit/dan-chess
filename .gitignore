@@ -75,4 +75,5 @@ Assets/Plugins/DanChessCore.dll
 
 # Has its own gitignore
 !DanChessCore/**
-!DanChessCoreFrameV4/** 
+
+Assets/TextMesh Pro/
