@@ -76,4 +76,6 @@ Assets/Plugins/DanChessCore.dll
 # Has its own gitignore
 !DanChessCore/**
 
+# Not sure if this is right
 Assets/TextMesh Pro/
+Assets/TextMesh Pro.meta
