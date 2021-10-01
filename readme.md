@@ -2,7 +2,7 @@
 
 Learning Unity and chess.
 
-![Start of creating a Chess Game in Unity](Docs/ChessGame.PNG "Chess Game in Unity")
+![Pieces all over the place on and around a chess board](Docs/MovingPieces.PNG "Chess Game in Unity")
 
 Basically a rebuild of https://github.com/SebLague/Chess-AI
 
