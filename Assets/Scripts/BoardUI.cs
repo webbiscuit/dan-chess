@@ -125,6 +125,13 @@ public class BoardUI : MonoBehaviour
 			PositionFromCoord(square.fileIndex, square.rankIndex, pieceDepth);
 	}
 
+	public void MakePieceMove(Coord startCoord, Coord endCoord)
+	{
+		board.MovePiece(startCoord, endCoord);
+		ShowPiece(startCoord, board[startCoord]);
+		ShowPiece(endCoord, board[endCoord]);
+	}
+
 	public void ResetPiecePosition(Coord startCoord, Coord endCoord)
 	{
 		var piece = board[startCoord];

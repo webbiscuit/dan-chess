@@ -49,7 +49,7 @@ class HumanPlayer
 		}
 	}
 
-	void HandlePiecePlacement(Vector2 mousePos)
+	private void HandlePiecePlacement(Vector2 mousePos)
 	{
 		var droppedSquare = boardUI.GetCoordUnderMouse(mousePos);
 		TryMakeMove(selectedPieceSquare.Value, droppedSquare);
@@ -59,10 +59,20 @@ class HumanPlayer
     {
 		var target = droppedSquare ?? selectedPieceSquare;
 
-		CancelPieceSelection(selectedPieceSquare, target);
+		//CancelPieceSelection(selectedPieceSquare, target);
+		MakeMove(selectedPieceSquare, target);
 	}
 
-	void CancelPieceSelection(Coord originalSquare, Coord droppedSquare)
+    private void MakeMove(Coord originalSquare, Coord droppedSquare)
+    {
+		if (currentState != InputState.None)
+		{
+			currentState = InputState.None;
+			boardUI.MakePieceMove(originalSquare, droppedSquare);
+		}
+	}
+
+	private void CancelPieceSelection(Coord originalSquare, Coord droppedSquare)
 	{
 		if (currentState != InputState.None)
 		{
@@ -71,7 +81,7 @@ class HumanPlayer
 		}
 	}
 
-	void HandlePieceSelection(Vector2 mousePos)
+	private void HandlePieceSelection(Vector2 mousePos)
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
