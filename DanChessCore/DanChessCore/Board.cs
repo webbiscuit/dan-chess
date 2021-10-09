@@ -17,9 +17,16 @@ namespace DanChessCore
             get => IsInBoard(index) ? Squares[index] : null;
         }
 
+        public Piece this[Coord coord]
+        {
+            get => this[coord.fileIndex, coord.rankIndex];
+            private set => this[coord.fileIndex, coord.rankIndex] = value;
+        }
+
         public Piece this[int file, int rank]
         {
             get => IsInBoard(file, rank) ? Squares[rank * Ranks + file] : null;
+            private set => _Squares[rank * Ranks + file] = value;
         }
 
         public Piece this[string squareName]
@@ -35,6 +42,13 @@ namespace DanChessCore
         public bool IsInBoard(int index)
         {
             return index >= 0 && index < Files * Ranks;
+        }
+
+        public void MovePiece(Coord from, Coord to)
+        {
+            Piece piece = this[from];
+            this[from] = null;
+            this[to] = piece;
         }
 
         private Piece[] _Squares;

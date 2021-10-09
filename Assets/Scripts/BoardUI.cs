@@ -124,5 +124,13 @@ public class BoardUI : MonoBehaviour
         squarePieceRenderers[square.fileIndex, square.rankIndex].transform.position = 
 			PositionFromCoord(square.fileIndex, square.rankIndex, pieceDepth);
 	}
+
+	public void ResetPiecePosition(Coord startCoord, Coord endCoord)
+	{
+		var piece = board[startCoord];
+		ShowPiece(startCoord, piece);
+		Debug.Log(startCoord);
+		Debug.Log(piece);
+	}
 }
 

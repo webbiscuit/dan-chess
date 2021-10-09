@@ -51,7 +51,24 @@ class HumanPlayer
 
 	void HandlePiecePlacement(Vector2 mousePos)
 	{
-		currentState = InputState.None;
+		var droppedSquare = boardUI.GetCoordUnderMouse(mousePos);
+		TryMakeMove(selectedPieceSquare.Value, droppedSquare);
+	}
+
+    private void TryMakeMove(Coord selectedPieceSquare, Coord? droppedSquare)
+    {
+		var target = droppedSquare ?? selectedPieceSquare;
+
+		CancelPieceSelection(selectedPieceSquare, target);
+	}
+
+	void CancelPieceSelection(Coord originalSquare, Coord droppedSquare)
+	{
+		if (currentState != InputState.None)
+		{
+			currentState = InputState.None;
+			boardUI.ResetPiecePosition(originalSquare, droppedSquare);
+		}
 	}
 
 	void HandlePieceSelection(Vector2 mousePos)
