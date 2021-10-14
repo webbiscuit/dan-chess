@@ -46,8 +46,11 @@
     <Compile Include="Coord.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="FileFormats\FenFormat.cs" />
+    <Compile Include="Moves\IMove.cs" />
+    <Compile Include="Moves\StraightSlider.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Square.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

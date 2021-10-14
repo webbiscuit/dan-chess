@@ -8,7 +8,8 @@ namespace DanChessCore.FileFormats
 {
     public static class FenFormat
     {
-        public static readonly string NormalStartingBoard = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+        //public static readonly string NormalStartingBoard = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+        public static readonly string NormalStartingBoard = "r7/8/8/8/8/8/8/8 w KQkq - 0 1";
 
         public static BoardSetup ToBoardSetup(string fen)
         {

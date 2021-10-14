@@ -96,8 +96,8 @@ public class BoardUI : MonoBehaviour
 		{
 			for (int file = 0; file < Board.Files; file++)
 			{
-				var coord = new Coord(file, rank);
-				SetSquareColour(coord, (coord.IsLightSquare()) ? boardTheme.lightSquares.normal : boardTheme.darkSquares.normal);
+				var square = new Square(file, rank);
+				SetSquareColour(square.Coord, (square.IsLightSquare()) ? boardTheme.lightSquares.normal : boardTheme.darkSquares.normal);
 			}
 		}
 	}

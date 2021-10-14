@@ -11,11 +11,6 @@
 			this.rankIndex = rankIndex;
 		}
 
-		public bool IsLightSquare()
-		{
-			return (fileIndex + rankIndex) % 2 != 0;
-		}
-
         public override string ToString()
         {
 			return $"File {fileIndex} - Index {rankIndex}";

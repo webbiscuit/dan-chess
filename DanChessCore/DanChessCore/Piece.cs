@@ -1,4 +1,6 @@
-﻿namespace DanChessCore
+﻿using System.Collections.Generic;
+
+namespace DanChessCore
 {
     public class Piece
     {
@@ -17,6 +19,11 @@
             FenType = type;
             Name = name;
             Colour = pieceColour;
+        }
+
+        public List<Square> FindMoves()
+        {
+            return new List<Square>();
         }
     }
 }
