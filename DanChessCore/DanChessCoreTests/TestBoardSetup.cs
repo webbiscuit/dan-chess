@@ -16,9 +16,9 @@ namespace DanChessCoreTests
         {
             Board board = new Board();
 
-            foreach (Piece piece in board.Squares)
+            foreach (Square square in board.Squares)
             {
-                piece.Should().BeNull();
+                square.Piece.Should().BeNull();
             }
         }
 
@@ -27,103 +27,103 @@ namespace DanChessCoreTests
         {
             Board board = Board.FromFen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 
-            board["a1"].Should().BeEquivalentTo(new Piece(
+            board["a1"].Piece.Should().BeEquivalentTo(new Piece(
                 'R', "Rook", Piece.PieceColour.White
             ));
-            board["b1"].Should().BeEquivalentTo(new Piece(
+            board["b1"].Piece.Should().BeEquivalentTo(new Piece(
                 'N', "Knight", Piece.PieceColour.White
             ));
-            board["c1"].Should().BeEquivalentTo(new Piece(
+            board["c1"].Piece.Should().BeEquivalentTo(new Piece(
                 'B', "Bishop", Piece.PieceColour.White
             ));
-            board["d1"].Should().BeEquivalentTo(new Piece(
+            board["d1"].Piece.Should().BeEquivalentTo(new Piece(
                 'Q', "Queen", Piece.PieceColour.White
             ));
-            board["e1"].Should().BeEquivalentTo(new Piece(
+            board["e1"].Piece.Should().BeEquivalentTo(new Piece(
                 'K', "King", Piece.PieceColour.White
             ));
-            board["f1"].Should().BeEquivalentTo(new Piece(
+            board["f1"].Piece.Should().BeEquivalentTo(new Piece(
                 'B', "Bishop", Piece.PieceColour.White
             ));
-            board["g1"].Should().BeEquivalentTo(new Piece(
+            board["g1"].Piece.Should().BeEquivalentTo(new Piece(
                 'N', "Knight", Piece.PieceColour.White
             ));
-            board["h1"].Should().BeEquivalentTo(new Piece(
+            board["h1"].Piece.Should().BeEquivalentTo(new Piece(
                 'R', "Rook", Piece.PieceColour.White
             ));
 
-            board["a2"].Should().BeEquivalentTo(new Piece(
+            board["a2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
-            board["b2"].Should().BeEquivalentTo(new Piece(
+            board["b2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
-            board["c2"].Should().BeEquivalentTo(new Piece(
+            board["c2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
-            board["d2"].Should().BeEquivalentTo(new Piece(
+            board["d2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
-            board["e2"].Should().BeEquivalentTo(new Piece(
+            board["e2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
-            board["f2"].Should().BeEquivalentTo(new Piece(
+            board["f2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
-            board["g2"].Should().BeEquivalentTo(new Piece(
+            board["g2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
-            board["h2"].Should().BeEquivalentTo(new Piece(
+            board["h2"].Piece.Should().BeEquivalentTo(new Piece(
                 'P', "Pawn", Piece.PieceColour.White
             ));
 
-            board["a7"].Should().BeEquivalentTo(new Piece(
+            board["a7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
-            board["b7"].Should().BeEquivalentTo(new Piece(
+            board["b7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
-            board["c7"].Should().BeEquivalentTo(new Piece(
+            board["c7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
-            board["d7"].Should().BeEquivalentTo(new Piece(
+            board["d7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
-            board["e7"].Should().BeEquivalentTo(new Piece(
+            board["e7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
-            board["f7"].Should().BeEquivalentTo(new Piece(
+            board["f7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
-            board["g7"].Should().BeEquivalentTo(new Piece(
+            board["g7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
-            board["h7"].Should().BeEquivalentTo(new Piece(
+            board["h7"].Piece.Should().BeEquivalentTo(new Piece(
                 'p', "Pawn", Piece.PieceColour.Black
             ));
 
-            board["a8"].Should().BeEquivalentTo(new Piece(
+            board["a8"].Piece.Should().BeEquivalentTo(new Piece(
                 'r', "Rook", Piece.PieceColour.Black
             ));
-            board["b8"].Should().BeEquivalentTo(new Piece(
+            board["b8"].Piece.Should().BeEquivalentTo(new Piece(
                 'n', "Knight", Piece.PieceColour.Black
             ));
-            board["c8"].Should().BeEquivalentTo(new Piece(
+            board["c8"].Piece.Should().BeEquivalentTo(new Piece(
                 'b', "Bishop", Piece.PieceColour.Black
             ));
-            board["d8"].Should().BeEquivalentTo(new Piece(
+            board["d8"].Piece.Should().BeEquivalentTo(new Piece(
                 'q', "Queen", Piece.PieceColour.Black
             ));
-            board["e8"].Should().BeEquivalentTo(new Piece(
+            board["e8"].Piece.Should().BeEquivalentTo(new Piece(
                 'k', "King", Piece.PieceColour.Black
             ));
-            board["f8"].Should().BeEquivalentTo(new Piece(
+            board["f8"].Piece.Should().BeEquivalentTo(new Piece(
                 'b', "Bishop", Piece.PieceColour.Black
             ));
-            board["g8"].Should().BeEquivalentTo(new Piece(
+            board["g8"].Piece.Should().BeEquivalentTo(new Piece(
                 'n', "Knight", Piece.PieceColour.Black
             ));
-            board["h8"].Should().BeEquivalentTo(new Piece(
+            board["h8"].Piece.Should().BeEquivalentTo(new Piece(
                 'r', "Rook", Piece.PieceColour.Black
             ));
         }
@@ -132,7 +132,7 @@ namespace DanChessCoreTests
         public void TestSinglePiece()
         {
             Board board = Board.FromFen("r7/8/8/8/8/8/8/8 w KQkq - 0 1");
-            var piece = board["a8"];
+            var piece = board["a8"].Piece;
             piece.Name.Should().Be("Rook");
             piece.FenType.Should().Be('r');
             piece.Colour.Should().Be(Piece.PieceColour.Black);

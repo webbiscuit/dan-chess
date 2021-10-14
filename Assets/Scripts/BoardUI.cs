@@ -113,7 +113,7 @@ public class BoardUI : MonoBehaviour
 		{
 			for (int file = 0; file < Board.Files; file++)
 			{
-				ShowPiece(new Coord(file, rank), board[file, rank]);
+				ShowPiece(new Coord(file, rank), board[file, rank].Piece);
 			}
 		}
 	}
@@ -128,13 +128,13 @@ public class BoardUI : MonoBehaviour
 	public void MakePieceMove(Coord startCoord, Coord endCoord)
 	{
 		board.MovePiece(startCoord, endCoord);
-		ShowPiece(startCoord, board[startCoord]);
-		ShowPiece(endCoord, board[endCoord]);
+		ShowPiece(startCoord, board[startCoord].Piece);
+		ShowPiece(endCoord, board[endCoord].Piece);
 	}
 
 	public void ResetPiecePosition(Coord startCoord, Coord endCoord)
 	{
-		var piece = board[startCoord];
+		var piece = board[startCoord].Piece;
 		ShowPiece(startCoord, piece);
 		Debug.Log(startCoord);
 		Debug.Log(piece);

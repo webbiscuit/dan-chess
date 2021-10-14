@@ -16,7 +16,7 @@ namespace DanChessCoreTests
         public void TestStraightSlider()
         {
             Board board = Board.FromFen("r7/8/8/8/8/8/8/8 w KQkq - 0 1");
-            var piece = board["a8"];
+            var piece = board["a8"].Piece;
             piece.Name.Should().Be("Rook");
 
             piece.FindMoves().Select(s => s.Name).Should().BeEquivalentTo(

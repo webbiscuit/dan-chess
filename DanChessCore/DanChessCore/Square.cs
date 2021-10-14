@@ -9,7 +9,7 @@ namespace DanChessCore
     public class Square
     {
         public Coord Coord { get; private set; }
-
+        public Piece Piece { get; private set; }
         public string Name { get => Board.GetSquareName(Coord.fileIndex, Coord.rankIndex); }
 
         public Square(Coord coord)
@@ -25,6 +25,16 @@ namespace DanChessCore
         public bool IsLightSquare()
         {
             return (Coord.fileIndex + Coord.rankIndex) % 2 != 0;
+        }
+
+        public void RemovePiece()
+        {
+            Piece = null;
+        }
+
+        public void PlacePiece(Piece piece)
+        {
+            Piece = piece;
         }
     }
 }

@@ -10,26 +10,26 @@ namespace DanChessCore
         public const int Ranks = 8;
         public const int Files = 8;
 
-        public ReadOnlyCollection<Piece> Squares { get { return Array.AsReadOnly(_Squares); } }
+        public ReadOnlyCollection<Square> Squares { get { return Array.AsReadOnly(_Squares); } }
 
-        public Piece this[int index]
+        public Square this[int index]
         {
             get => IsInBoard(index) ? Squares[index] : null;
         }
 
-        public Piece this[Coord coord]
+        public Square this[Coord coord]
         {
             get => this[coord.fileIndex, coord.rankIndex];
             private set => this[coord.fileIndex, coord.rankIndex] = value;
         }
 
-        public Piece this[int file, int rank]
+        public Square this[int file, int rank]
         {
             get => IsInBoard(file, rank) ? Squares[rank * Ranks + file] : null;
             private set => _Squares[rank * Ranks + file] = value;
         }
 
-        public Piece this[string squareName]
+        public Square this[string squareName]
         {
             get => Squares[IndexFromSquareName(squareName)];
         }
@@ -46,30 +46,50 @@ namespace DanChessCore
 
         public void MovePiece(Coord from, Coord to)
         {
-            Piece piece = this[from];
-            this[from] = null;
-            this[to] = piece;
+            Piece piece = this[from].Piece;
+            this[from].RemovePiece();
+            this[to].PlacePiece(piece);
         }
 
-        private Piece[] _Squares;
+        private Square[] _Squares;
 
         private const string fileNames = "abcdefgh";
         private const string rankNames = "12345678";
 
         public Board()
         {
-            _Squares = new Piece[Ranks * Files];
+            _Squares = new Square[Ranks * Files];
+
+            for (int rank = 0; rank < Board.Ranks; rank++)
+            {
+                for (int file = 0; file < Board.Files; file++)
+                {
+                    Coord coord = new Coord(file, rank);
+                    this[coord] = new Square(coord);
+                }
+            }
         }
 
         public Board(BoardSetup setup) : this()
         {
-            setup.Squares.CopyTo(_Squares, 0);
+            _Squares = new Square[Ranks * Files];
+
+            for (int i = 0; i < setup.Squares.Length; i++)
+            {
+                _Squares[i] = new Square(CoordFromIndex(i));
+                _Squares[i].PlacePiece(setup.Squares[i]);
+            }
         }
 
         public void LayoutFromFen(string fen)
         {
             BoardSetup setup = FenFormat.ToBoardSetup(fen);
-            setup.Squares.CopyTo(_Squares, 0);
+
+            for (int i = 0; i < setup.Squares.Length; i++)
+            {
+                _Squares[i] = new Square(CoordFromIndex(i));
+                _Squares[i].PlacePiece(setup.Squares[i]);
+            }
         }
 
         public static Board FromFen(string fen)
@@ -85,9 +105,14 @@ namespace DanChessCore
             return fileNames[file] + "" + (rank + 1);
         }
 
-        public int IndexFromSquareName(string name)
+        public static int IndexFromSquareName(string name)
         {
             return fileNames.IndexOf(name[0]) + rankNames.IndexOf(name[1]) * Ranks;
+        }
+
+        public static Coord CoordFromIndex(int index)
+        {
+            return new Coord(index / Files, index % Ranks);
         }
     }
 }
