@@ -127,5 +127,15 @@ namespace DanChessCoreTests
                 'r', "Rook", Piece.PieceColour.Black
             ));
         }
-    }
+
+        [Test]
+        public void TestSinglePiece()
+        {
+            Board board = Board.FromFen("r7/8/8/8/8/8/8/8 w KQkq - 0 1");
+            var piece = board["a8"];
+            piece.Name.Should().Be("Rook");
+            piece.FenType.Should().Be('r');
+            piece.Colour.Should().Be(Piece.PieceColour.Black);
+        }
+    } 
 }
