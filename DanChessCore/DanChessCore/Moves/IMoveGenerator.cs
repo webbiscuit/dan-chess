@@ -8,6 +8,6 @@ namespace DanChessCore.Moves
 {
     public interface IMoveGenerator
     {
-        IEnumerable<Square> FindMoves(Board board);
+        IEnumerable<Square> FindMoves(Square origin, Board board);
     }
 }

@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-			return $"File {fileIndex} - Index {rankIndex}";
+			return $"File {fileIndex} - Rank {rankIndex}";
 		}
 
         //public int CompareTo(Coord other)

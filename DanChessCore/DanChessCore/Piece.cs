@@ -25,9 +25,9 @@ namespace DanChessCore
             Moves = moves;
         }
 
-        public IEnumerable<Square> FindMoves(Board board)
+        public IEnumerable<Square> FindMoves(Square origin, Board board)
         {
-            foreach (var move in Moves.SelectMany(m => m.FindMoves(board)))
+            foreach (var move in Moves.SelectMany(m => m.FindMoves(origin, board)))
             {
                 yield return move;
             }

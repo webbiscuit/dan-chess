@@ -27,6 +27,7 @@ namespace DanChessCoreTests
         {
             Board board = Board.FromFen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 
+            board["a1"].Name.Should().Be("a1");
             board["a1"].Piece.Name.Should().Be("Rook");
             board["a1"].Piece.Colour.Should().Be(Piece.PieceColour.White);
             board["b1"].Piece.Name.Should().Be("Knight");

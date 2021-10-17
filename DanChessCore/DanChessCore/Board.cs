@@ -70,7 +70,7 @@ namespace DanChessCore
             }
         }
 
-        public Board(BoardSetup setup) : this()
+        public Board(BoardSetup setup)
         {
             _Squares = new Square[Ranks * Files];
 
@@ -112,7 +112,7 @@ namespace DanChessCore
 
         public static Coord CoordFromIndex(int index)
         {
-            return new Coord(index / Files, index % Ranks);
+            return new Coord(index % Files, index / Ranks);
         }
     }
 }

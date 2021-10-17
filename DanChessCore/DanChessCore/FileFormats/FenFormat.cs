@@ -51,7 +51,10 @@ namespace DanChessCore.FileFormats
                 case 'P':
                     return new Piece(p, "Pawn", colour, new List<IMoveGenerator>());
                 case 'R':
-                    return new Piece(p, "Rook", colour, new List<IMoveGenerator>());
+                    return new Piece(p, "Rook", colour, new List<IMoveGenerator>
+                    {
+                        new StraightSlider()
+                    });
                 case 'N':
                     return new Piece(p, "Knight", colour, new List<IMoveGenerator>());
                 case 'B':
