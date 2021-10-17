@@ -9,23 +9,23 @@ namespace DanChessCore.Moves
         {
             var moves = new List<Square>();
 
-            for (int f = 0; f < origin.Coord.fileIndex; f++)
+            for (int f = 0; f < Board.Files; f++)
             {
+                if (f == origin.Coord.fileIndex)
+                {
+                    continue;
+                }
+
                 moves.Add(board[f, origin.Coord.rankIndex]);
             }
 
-            for (int f = origin.Coord.fileIndex + 1; f < Board.Files; f++)
+            for (int r = 0; r < Board.Ranks; r++)
             {
-                moves.Add(board[f, origin.Coord.rankIndex]);
-            }
+                if (r == origin.Coord.rankIndex)
+                {
+                    continue;
+                }
 
-            for (int r = 0; r < origin.Coord.rankIndex; r++)
-            {
-                moves.Add(board[origin.Coord.fileIndex, r]);
-            }
-
-            for (int r = origin.Coord.rankIndex + 1; r < Board.Ranks; r++)
-            {
                 moves.Add(board[origin.Coord.fileIndex, r]);
             }
 
