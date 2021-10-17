@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DanChessCore.Moves
 {
-    class StraightSlider
+    public class StraightSlider
     {
+        IEnumerable<Square> FindMoves(Board board)
+        {
+            return new List<Square>();
+        }
     }
 }

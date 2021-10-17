@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DanChessCore.Moves
 {
-    interface IMove
+    public interface IMoveGenerator
     {
+        IEnumerable<Square> FindMoves(Board board);
     }
 }

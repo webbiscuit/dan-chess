@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DanChessCore.Moves;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,17 +49,17 @@ namespace DanChessCore.FileFormats
             switch (char.ToUpper(p))
             {
                 case 'P':
-                    return new Piece(p, "Pawn", colour);
+                    return new Piece(p, "Pawn", colour, new List<IMoveGenerator>());
                 case 'R':
-                    return new Piece(p, "Rook", colour);
+                    return new Piece(p, "Rook", colour, new List<IMoveGenerator>());
                 case 'N':
-                    return new Piece(p, "Knight", colour);
+                    return new Piece(p, "Knight", colour, new List<IMoveGenerator>());
                 case 'B':
-                    return new Piece(p, "Bishop", colour);
+                    return new Piece(p, "Bishop", colour, new List<IMoveGenerator>());
                 case 'Q':
-                    return new Piece(p, "Queen", colour);
+                    return new Piece(p, "Queen", colour, new List<IMoveGenerator>());
                 case 'K':
-                    return new Piece(p, "King", colour);
+                    return new Piece(p, "King", colour, new List<IMoveGenerator>());
             }
 
             throw new PieceException($"Unsupported fen type: {p}");

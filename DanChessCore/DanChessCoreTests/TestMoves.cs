@@ -19,7 +19,7 @@ namespace DanChessCoreTests
             var piece = board["a8"].Piece;
             piece.Name.Should().Be("Rook");
 
-            piece.FindMoves().Select(s => s.Name).Should().BeEquivalentTo(
+            piece.FindMoves(board).Select(s => s.Name).Should().BeEquivalentTo(
                 "a7", "a6", "a5", "a4", "a3", "a2", "a1",
                 "b8", "c8", "d8", "e8", "f8", "g8", "h8");
         }

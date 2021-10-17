@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using DanChessCore.Moves;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DanChessCore
 {
@@ -7,6 +9,7 @@ namespace DanChessCore
         public char FenType { get; }
         public string Name { get; }
         public PieceColour Colour { get; }
+        public List<IMoveGenerator> Moves { get; }
 
         public enum PieceColour
         {
@@ -14,16 +17,20 @@ namespace DanChessCore
             Black
         }
 
-        public Piece(char type, string name, PieceColour pieceColour)
+        public Piece(char type, string name, PieceColour pieceColour, List<IMoveGenerator> moves)
         {
             FenType = type;
             Name = name;
             Colour = pieceColour;
+            Moves = moves;
         }
 
-        public List<Square> FindMoves()
+        public IEnumerable<Square> FindMoves(Board board)
         {
-            return new List<Square>();
+            foreach (var move in Moves.SelectMany(m => m.FindMoves(board)))
+            {
+                yield return move;
+            }
         }
     }
 }
